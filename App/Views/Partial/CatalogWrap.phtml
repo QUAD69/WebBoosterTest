@@ -1,0 +1,8 @@
+<div class="list-group mb-1">
+    <a href="#" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#catalog<?=$catalog->getId();?>"><?=$catalog->getName();?></a>
+    <div id="catalog<?=$catalog->getId();?>" class="list-group-item collapse">
+        <?php foreach($catalog->findChildCatalogs() as $childCategory): ?>
+            <?php $this->render('Partial/CatalogWrap', ['catalog' => $childCategory]); ?>
+        <?php endforeach; ?>
+    </div>
+</div>
